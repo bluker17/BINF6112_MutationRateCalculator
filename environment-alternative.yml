@@ -1,0 +1,8 @@
+name: mut_calculator
+channels:
+- conda-forge
+dependencies:
+- numpy
+- pandas
+- python=3.11
+

@@ -12,7 +12,7 @@ The GNU GPL is a license that ensures code is open-source. GNU GPL allows others
 
 I chose to use the GNU GPL to make the code easily accessible for anyone to use, or to further build upon. 
 
-[Project URL](https://github.com/bluke17/BINF6112_MutationRateCalculator)
+[Project URL](https://github.com/bluker17/BINF6112_MutationRateCalculator)
 
 ## Authors:
 **Denis Jacob Machado**

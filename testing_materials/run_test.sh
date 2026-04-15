@@ -16,9 +16,9 @@ function main {
 					--match ${MA} \
 					--mismatch ${MI} \
 					--indel ${IN} \
-					-i sequences.fasta \
-                    -r reference.fasta \
-					-o example_csv/alignment_matches${MA}_mismatches${MI}_indels${IN}.csv
+					-i testing_materials/example_data/sequences.fasta \
+                    -r testing_materials/example_data/reference.fasta \
+					-o testing_materials/example_outputs/alignment_matches${MA}_mismatches${MI}_indels${IN}.csv
 			
 				wait
 			

@@ -11,13 +11,15 @@ Uses mut_calc module to calculate mutation rates.
 """
 
 import sys, argparse
-from newu2.read import read_fa
-from newu2.write import append_csv, write_csv
-from newu2.num import parse_fa, fill_matrix, trace_matrix
-from consense.consense import get_consensus
-from consense.consense import create_consensus
-from score.align_score import get_bottom_right_value
-from mut_calc.mut_rate import mutation_rate
+from pathlib import Path
+
+from src.newu2.read import read_fa
+from src.newu2.write import append_csv, write_csv
+from src.newu2.num import parse_fa, fill_matrix, trace_matrix
+from src.consense.consense import get_consensus
+from src.consense.consense import create_consensus
+from src.score.align_score import get_bottom_right_value
+from src.mut_calc.mut_rate import mutation_rate
 
 
 class AlignmentRunner:
@@ -27,7 +29,7 @@ class AlignmentRunner:
 	and outputs results.
 	"""
 
-	def __init__(self, fasta_file: str="sequences.fasta", aln_file: str="alignment.fasta", reference_file: str="reference.fasta", match:int=1, mismatch:int=-1, indel:int=-1) -> None:
+	def __init__(self, fasta_file: str, aln_file: str, reference_file: str, match:int=1, mismatch:int=-1, indel:int=-1) -> None:
 		"""
 		Initialize the runner with a fasta file.
 
@@ -99,14 +101,14 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument(
 		"-i", "--input_file",
 		required=False,
-		default="sequences.fasta",
+		default="testing_materials/example_data/sequences.fasta",
 		type=str,
 		help="Path to input fasta file containing sequences"
 	)
 	parser.add_argument(
 		"-o", "--output_file",
 		required=False,
-		default="alignments.csv",
+		default="output/alignments.csv",
 		type=str,
 		help="Path to output fasta file containing the sequence alignment"
 	)
@@ -134,7 +136,7 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument(
 		"-r", "--reference_file",
 		required=False,
-		default="reference.fasta",
+		default="testing_materials/example_data/reference.fasta",
 		type=str,
 		help="Path to reference sequence file"
 	)
@@ -158,12 +160,24 @@ def validate_args(args: argparse.Namespace) -> None:
 	files= (".fasta", ".fa", ".fna", ".fas")
 	if not args.input_file.endswith(tuple(files)):
 		raise ValueError("Input file must be a FASTA file with .fasta, .fa, .fna, or .fas extension.")
+	
+	if not Path(args.input_file).exists():
+		raise ValueError(f"Input file '{args.input_file}' does not exist.")
+	if not Path(args.reference_file).exists():
+		raise ValueError(f"Reference file '{args.reference_file}' does not exist.")
+	
 	if not args.output_file.endswith(".csv"):
 		raise ValueError("Output file must be a CSV file with .csv extension.")
+
+	dir_path = Path(args.output_file).parent
+	if not dir_path.is_dir():
+		raise FileNotFoundError(f"Directory for output file does not exist: {dir_path}")
+	
 	if not args.reference_file.endswith(tuple(files)):
 		raise ValueError("Reference file must be a FASTA file with .fasta, .fa, .fna, or .fas extension.")
 	if read_fa(args.reference_file) is None or len(read_fa(args.reference_file)) > 1:
 		raise ValueError("Reference file must have exactly one sequence")
+	
 
 def main() -> None:
 	"""

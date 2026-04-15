@@ -8,8 +8,6 @@ This script is part of the newu2 module.
 """
 
 import re
-from typing import List
-
 
 def read_fa(filepath: str) -> dict:
     """

@@ -1,3 +1,0 @@
-Sequence_ID,Sequence,Reference_ID,Reference_Sequence,Consensuse_Sequence,Alignment_Cost,Mutation_Rate,Mutation_Counts,Alignment_Length
-sequence1,GCATGCG,reference,GCCTGCG,GSMCTGCG,4,0.5,4,8
-sequence2,GATTACA,reference,GCCTGCG,GATTRCCYGMG,-5,1.0,11,11

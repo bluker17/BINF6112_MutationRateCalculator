@@ -28,7 +28,7 @@ The GNU GPL is a license that ensures code is open-source. GNU GPL allows others
         ├── __init__.py
         ├── consense.py
     └── 📁mut_calc
-        ├── init.py
+        ├── __init__.py
         ├── mut_rate.py
     └── 📁newu2
         ├── __init__.py

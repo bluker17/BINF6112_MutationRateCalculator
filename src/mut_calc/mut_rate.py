@@ -1,9 +1,9 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 
-def mutation_rate(aln: np.ndarray, seq_id: str, seq: str, ref_id: str, ref_seq: str, cost: str, con: str) -> pd.DataFrame:
+def mutation_rate(aln: np.ndarray, seq_id: str, seq: str, ref_id: str, ref_seq: str, cost: int, con: str) -> pd.DataFrame:
     """
     Calculate the mutation rate between a query sequence and a reference sequence based on their alignment.
 
@@ -19,7 +19,7 @@ def mutation_rate(aln: np.ndarray, seq_id: str, seq: str, ref_id: str, ref_seq: 
         Identifier for the reference sequence.
     ref_seq: str
         The reference sequence.
-    cost: str
+    cost: int
         The alignment cost (score) for the aligned sequences.
     con: str
         The consensus sequence derived from the alignment.

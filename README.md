@@ -12,13 +12,12 @@ UNCC ID: 801484356
 ## Program Description
 Given a FASTA file containing multiple query sequences, a reference FASTA file, and parameters for match, mismatch, and indel costs, the mutation rate calculator will determine alignments between each query sequence and the reference sequence. It will then return all results in a CSV file.
 
+[Project URL](https://github.com/bluker17/BINF6112_MutationRateCalculator)
+
 ## License: 
 **GNU General Public License Version 3**
 
-The GNU GPL is a license that ensures code is open-source. GNU GPL allows others to utilize, modify, or distribute code. If other users modify the code, then these users are expected to share their changes to the code under a GNU GPL to maintain the open-source integrity of the code.
-
-[Project URL](https://github.com/bluker17/BINF6112_MutationRateCalculator)
-
+Review `LICENSE` for more information.
 
 ## Project File Structure:
 
@@ -123,5 +122,63 @@ Dr. Jacob Machado provided extensive groundwork for modules found in `newu2` and
 
 Bobby created modules in `consense`, `mut_calc`, and `score` to generate results from Dr. Jacob Machado's alignments from `newu2`. Additionally, `main.py` was updated to handle these modules, as well as updated `num.py` to successfully align multiple query sequences to a reference sequence.
 
-## References
-OpenAI's ChatGPT model GPT-5.3 was used to guide coding decisions on creating a consensus sequence and how to handle numpy arrays for calculating mutation rate.
+## References:
+
+### Python Standard Library
+
+**`argparse`**  
+Python Software Foundation. (2024). *argparse — Parser for command-line options, arguments and sub-commands*. Python 3 Documentation.  
+https://docs.python.org/3/library/argparse.html  
+
+Used for parsing command-line arguments and handling CLI input configuration.
+
+---
+
+**`csv`**
+csv Development Team. (2024). *csv — CSV File Reading and Writing*. Python 3 Documentation.
+https://docs.python.org/3/library/csv.html
+
+Used for reading and writing comma-separated value (CSV) files, providing tools to efficiently parse and generate tabular data in text format.
+
+---
+
+**`pandas`**
+pandas Development Team. (May 11, 2026). *pandas documentation*. Python Data Analysis Library.
+https://pandas.pydata.org/docs/
+
+Used for data manipulation and analysis in Python, providing high-performance DataFrame and Series structures for working with tabular and time-series data.
+
+---
+
+**`pathlib`**  
+Python Software Foundation. (2024). *pathlib — Object-oriented filesystem paths*. Python 3 Documentation.  
+https://docs.python.org/3/library/pathlib.html  
+
+Used for platform-independent file and directory path handling.
+
+---
+
+**`re`**
+re Development Team. (2024). *re — Regular expression operations*. Python 3 Documentation.
+https://docs.python.org/3/library/re.html
+
+Used for working with regular expressions in Python, enabling pattern matching, searching, splitting, and text manipulation on strings.
+
+---
+
+**`sys`**  
+Python Software Foundation. (2024). *sys — System-specific parameters and functions*. Python 3 Documentation.  
+https://docs.python.org/3/library/sys.html  
+
+Used for interacting with interpreter-level functionality such as command-line arguments and program exit handling.
+
+### AI assistance:
+
+This project was developed with the help of [ChatGPT-5.5](https://chatgpt.com) by [OpenAI](https://openai.com).
+
+ChatGPT assisted with:
+- Code architecture and implementation
+- Debugging and code review
+
+All generated code was reviewed and tested by the author.
+
